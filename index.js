@@ -1,3 +1,5 @@
+const express = require('express');
+const app = express();
 let movies = [
   {
     title: 'Harry Potter and the Philosopher\'s Stone',
