@@ -74,3 +74,5 @@ app.get('/', (req, res) => {
 app.get('/movies', (req, res) => {
   res.json(movies);
 });
+//express.static to serve your “documentation.html” file from the public folder 
+app.use(express.static('public'));
