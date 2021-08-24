@@ -1,5 +1,9 @@
 const express = require('express');
 const app = express();
+//Morgan middleware library to log all requests 
+app.use(morgan('common'));
+
+
 let movies = [
   {
     title: 'Harry Potter and the Philosopher\'s Stone',
