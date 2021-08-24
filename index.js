@@ -1,4 +1,6 @@
 const express = require('express');
+  morgan = require('morgan');
+
 const app = express();
 //Morgan middleware library to log all requests 
 app.use(morgan('common'));
