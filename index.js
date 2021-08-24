@@ -76,3 +76,7 @@ app.get('/movies', (req, res) => {
 });
 //express.static to serve your “documentation.html” file from the public folder 
 app.use(express.static('public'));
+// listen for requests
+app.listen(8080, () => {
+  console.log('Your app is listening on port 8080.');
+});
