@@ -61,6 +61,13 @@ let movies = [
   },
 ];
 
+// GET requests
+
+//GET route located at the endpoint “/” that returns a default textual response 
+app.get('/', (req, res) => {
+  res.send('Welcome to MyFlix!');
+});
+
 //Express GET route located at the endpoint “/movies” that returns movies
 app.get('/movies', (req, res) => {
   res.json(movies);
