@@ -30,7 +30,7 @@ app.get('/users', (req, res) => {
 //Gets the data about a single movie, by name
 app.get('/movies/:name', (req, res) => {
   res.json(movies.find((movie) => { 
-    return movie.name === req.params.name 
+    return movie.title === req.params.name 
   }));
 });
 
@@ -52,7 +52,7 @@ app.get('/movies/director/:name', (req, res) => {
 //Gets the year of a movie
 app.get('/movies/:name/year', (req, res) => {
   const movie = movies.find((movie) => { 
-    return movie.name === req.params.name
+    return movie.title === req.params.name
   });
   res.json(movie.year);
 })
@@ -60,7 +60,7 @@ app.get('/movies/:name/year', (req, res) => {
 //Gets the director of a movie
 app.get('/movies/:name/director', (req, res) => {
   const movie = movies.find((movie) => { 
-    return movie.name === req.params.name
+    return movie.title === req.params.name
   });
   res.json(movie.director);
 })
@@ -69,7 +69,7 @@ app.get('/movies/:name/director', (req, res) => {
 app.post('/movies', (req, res) => {
   let newMovie = req.body;
 
-  if (!newMovie.name) {
+  if (!newMovie.title) {
     const message = 'Missing name in request body';
     res.status(400).send(message);
   } else {
@@ -81,10 +81,10 @@ app.post('/movies', (req, res) => {
 
 // Deletes a movie from list by name
 app.delete('/movies/:name', (req, res) => {
-  let movie = movies.find((student) => { return movie.name === req.params.name });
+  let movie = movies.find((student) => { return movie.title === req.params.name });
 
   if (movie) {
-    movies = movies.filter((obj) => { return obj.name !== req.params.name });
+    movies = movies.filter((obj) => { return obj.title !== req.params.name });
     res.status(201).send('Movie ' + req.params.name + ' was deleted.');
   }
 });
