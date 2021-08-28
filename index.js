@@ -68,7 +68,7 @@ app.get('/movies/:name/director', (req, res) => {
   const movie = movies.find((movie) => { 
     return movie.title === req.params.name
   });
-  res.json(movie.director);
+  res.json(movie.director.name);
 })
 
 //Adds data for a new movie to our list of movies
