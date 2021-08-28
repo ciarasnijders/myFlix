@@ -54,6 +54,14 @@ app.get('/movies/:name/year', (req, res) => {
   res.json(movie.year);
 })
 
+//Gets the director of a movie
+app.get('/movies/:name/director', (req, res) => {
+  const movie = movies.find((movie) => { 
+    return movie.name === req.params.name
+  });
+  res.json(movie.director);
+})
+
 //express.static to serve your “documentation.html” file from the public folder 
 app.use(express.static('public'));
 
