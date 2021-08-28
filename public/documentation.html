@@ -99,10 +99,31 @@
         
         10. 
         request: allow users to update their user info (username)
-        URL: allow users to update their user info (username)
+        URL: /users
         HTTP method: PATCH
         Request body data format: PATCH
         Response body data format: A JSON object holiding data about the user that was updated
+
+        11. 
+        request: Allow users to add a movie to their list of favorites
+        URL: /users/favorites/[Name]
+        HTTP method: PUT
+        Request body data format: A JSON object holding data about the name of the movie that needs to be added to the favorite list
+        Response body data format: A JSON object holiding data about the list that was updated
+
+        12. 
+        request: Allow users to remove a movie from their list of favorites
+        URL: /users/favorites/[Name]
+        HTTP method: DELETE
+        Request body data format: none
+        Response body data format: A text message stating whether the movie was successfully removed (or not)
+
+        13. 
+        request: Allow existing users to deregister
+        URL: /users/[Name]
+        HTTP method: DELETE
+        Request body data format: none
+        Response body data format: A text message stating whether the user was successfully deregistered (or not)
 
     </p>
 </body>
