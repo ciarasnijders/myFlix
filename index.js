@@ -62,6 +62,20 @@ app.get('/movies/:name/director', (req, res) => {
   res.json(movie.director);
 })
 
+//Adds data for a new movie to our list of movies
+app.post('/movies', (req, res) => {
+  let newMovie = req.body;
+
+  if (!newMovie.name) {
+    const message = 'Missing name in request body';
+    res.status(400).send(message);
+  } else {
+    newMovie.id = uuid.v4();
+    movies.push(newMovie);
+    res.status(201).send(newMovie);
+  }
+});
+
 // Deletes a movie from list by name
 app.delete('/movies/:name', (req, res) => {
   let movie = movies.find((student) => { return movie.name === req.params.name });
