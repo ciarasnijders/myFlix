@@ -62,6 +62,16 @@ app.get('/movies/:name/director', (req, res) => {
   res.json(movie.director);
 })
 
+// Deletes a movie from list by name
+app.delete('/movies/:name', (req, res) => {
+  let movie = movies.find((student) => { return movie.name === req.params.name });
+
+  if (movie) {
+    movies = movies.filter((obj) => { return obj.name !== req.params.name });
+    res.status(201).send('Movie ' + req.params.name + ' was deleted.');
+  }
+});
+
 //express.static to serve your “documentation.html” file from the public folder 
 app.use(express.static('public'));
 
