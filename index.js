@@ -24,6 +24,13 @@ app.get('/users', (req, res) => {
   res.json(users);
 });
 
+//Gets the data about a single movie, by name
+app.get('/movies/:name', (req, res) => {
+  res.json(movies.find((movie) => { 
+    return movie.name === req.params.name 
+  }));
+});
+
 //express.static to serve your “documentation.html” file from the public folder 
 app.use(express.static('public'));
 
