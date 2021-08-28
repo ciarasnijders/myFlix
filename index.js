@@ -83,16 +83,6 @@ app.post('/movies', (req, res) => {
   }
 });
 
-// Deletes a movie from list by name
-app.delete('/movies/:name', (req, res) => {
-  let movie = movies.find((student) => { return movie.title === req.params.name });
-
-  if (movie) {
-    movies = movies.filter((obj) => { return obj.title !== req.params.name });
-    res.status(201).send('Movie ' + req.params.name + ' was deleted.');
-  }
-});
-
 //posts data about the user (username, email, password)
 app.post('/users', (req, res) => {
   let newUser = req.body;
@@ -107,17 +97,34 @@ app.post('/users', (req, res) => {
   }
 })
 
+// Deletes a movie from list by name
+app.delete('/movies/:name', (req, res) => {
+  let movie = movies.find((movie) => { 
+    return movie.title === req.params.name 
+  });
+  
+  if (movie) {
+    movies = movies.filter((movie) => { 
+      return movie.title !== req.params.name 
+    });
+    res.status(201).send('Movie ' + req.params.name + ' was deleted.');
+  }
+});
+
+
 //put data about the user that needs to be updated
 app.put('/users/:id', (req, res) => {
   const user = users.find((user) => {
     return user.id === Number(req.params.id)
   });
-  const newUser = req.body;
+  let newUser = req.body;
   if (!newUser.name || !newUser.email || !newUser.password) {
     const message = 'Missing data in request body';
     res.status(400).send(message);
   } else {
     const userIndex = users.indexOf(user);
+    _.extend(newUser, { id: req.params.id });
+    newUser = {id: req.params.id, ...newUser }
     users[userIndex] = newUser;
     res.status(200).send(users)
   }
