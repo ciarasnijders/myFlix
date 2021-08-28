@@ -6,8 +6,8 @@ const _ = require('lodash');
 
 const app = express();
 
-const movies = data.movies;
-const users = data.users;
+let movies = data.movies;
+let users = data.users;
 
 app.use(express.json());
 //Morgan middleware library to log all requests 
