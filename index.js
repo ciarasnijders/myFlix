@@ -31,6 +31,13 @@ app.get('/movies/:name', (req, res) => {
   }));
 });
 
+//Gets data about a genre by name
+app.get('/movies/genre/:genre', (req, res) => {
+  res.json(movies.filter((movie) => { 
+    return movie.genre === req.params.genre 
+  }));
+});
+
 //express.static to serve your “documentation.html” file from the public folder 
 app.use(express.static('public'));
 
