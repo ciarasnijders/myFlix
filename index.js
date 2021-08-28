@@ -1,15 +1,16 @@
 const express = require('express');
 const morgan = require('morgan');
 const data= require('./data');
+const uuid = require('uuid');
 
 const app = express();
 
 const movies = data.movies;
 const users = data.users;
+
+app.use(express.json());
 //Morgan middleware library to log all requests 
 app.use(morgan('common'));
-
-// GET requests
 
 //GET route located at the endpoint “/” that returns a default textual response 
 app.get('/', (req, res) => {
