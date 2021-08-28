@@ -1,64 +1,154 @@
 let movies = [
-    {
-      title: 'Harry Potter and the Philosopher\'s Stone',
-      director: 'Chris Columbus',
-      producer: 'David Heyman',
-      year: '2001'
+  {
+    id: 1,
+    title: 'Harry Potter and the Philosopher\'s Stone',
+    description:'',
+    director: {
+      name:'Chris Columbus',
+      bio:'',
+      birthYear: '',
+      deathYear:'', 
     },
-    {
-      title: 'Titanic',
-      director: 'James Cameron',
-      producer: 'James Cameron, Jon Landau',
-      year: '1997' 
+    year: '2001',
+    genre:'',
+    imageURL: '',
+    featured: true
+  },
+  {
+    id: 2,
+    title: 'Titanic',
+    description:'',
+    director: {
+      name:'James Cameron',
+      bio:'',
+      birthYear: '',
+      deathYear:'', 
     },
-    {
-      title: 'La La Land',
-      director: 'Damien Chazelle',
-      producer: 'Fred Berger, Jordan Horowitz',
-      year: '2016'  
+    year: '1997', 
+    genre:'',
+    imageURL: '',
+    featured: true
+  },
+  { 
+    id: 3,
+    title: 'La La Land',
+    description:'',
+    director: {
+      name:'Damien Chazelle',
+      bio:'',
+      birthYear: '',
+      deathYear:'', 
     },
-    {
-      title: 'Erin Brockovich',
-      director: 'Steven Soderbergh',
-      producer: 'Danny DeVito, Stacey Sher, Michael Shamberg',
-      year: '2000'  
+    year: '2016', 
+    genre:'',
+    imageURL: '',
+    featured: true
+  },
+  {
+    id: 4,
+    title: 'Erin Brockovich',
+    description:'',
+    director: {
+      name:'Steven Soderbergh',
+      bio:'',
+      birthYear: '',
+      deathYear:'', 
     },
-    {
-      title: 'Forrest Gump',
-      director: 'Robert Zemeckis',
-      producer: 'Wendy Fineman, Steve Tisch',
-      year: '1994'  
+    year: '2000', 
+    genre:'',
+    imageURL: '',
+    featured: true
+  },
+  {
+    id: 5,
+    title: 'Forrest Gump',
+    description:'',
+    director: {
+      name:'Robert Zemeckis',
+      bio:'',
+      birthYear: '',
+      deathYear:'', 
     },
-    {
-      title: 'Matilda',
-      director: 'Danny DeVito',
-      producer: 'Danny DeVito, Michael Shamberg',
-      year: '1996'  
+    year: '1994', 
+    genre:'',
+    imageURL: '',
+    featured: true
+  },
+  {
+    id: 6,
+    title: 'Matilda',
+    description:'',
+    director: {
+      name:'Danny DeVito',
+      bio:'',
+      birthYear: '',
+      deathYear:'', 
     },
-    {
-      title: 'Jumanji',
-      director: 'Joe Johnston',
-      producer: 'Robert W. Cort, Ted Field, Larry Franco',
-      year: '1995'  
+    year: '1996', 
+    genre:'',
+    imageURL: '',
+    featured: true
+  },
+  {
+    id: 7,
+    title: 'Jumanji',
+    description:'',
+    director: {
+      name:'Joe Johnston',
+      bio:'',
+      birthYear: '',
+      deathYear:'', 
     },
-    {
-      title: 'Taken',
-      director: 'Pierre Morel',
-      producer: 'Luc Besson',
-      year: '2008'  
+    year: '1995', 
+    genre:'',
+    imageURL: '',
+    featured: true
+  },
+  {
+    id: 8,
+    title: 'Taken',
+    description:'',
+    director: {
+      name:'Pierre Morel',
+      bio:'',
+      birthYear: '',
+      deathYear:'', 
     },
-    {
-      title: 'The Green Mile',
-      director: 'Frank Darabont',
-      producer: 'Frank Darabont, David Valdes',
-      year: '1999' 
+    year: '2008', 
+    genre:'',
+    imageURL: '',
+    featured: false
+  },
+  {
+    id: 9,
+    title: 'The Green Mile',
+    description:'',
+    director: {
+      name:'Frank Darabont',
+      bio:'',
+      birthYear: '',
+      deathYear:'', 
     },
-    {
-      title: 'The Help',
-      director: 'Tate Taylor',
-      producer: 'Chris Columbus, Michael Barnathan, Brunson Green',
-      year: '2011'  
+    year: '1999', 
+    genre:'',
+    imageURL: '',
+    featured: true
+  },
+  {
+    id: 10,
+    title: 'The Help',
+    description:'',
+    director: {
+      name:'Tate Taylor',
+      bio:'',
+      birthYear: '',
+      deathYear:'', 
     },
-  ];
+    year: '2011', 
+    genre:'',
+    imageURL: '',
+    featured: true
+  },
+];
 
   module.exports = movies;
