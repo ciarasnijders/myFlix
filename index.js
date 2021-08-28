@@ -36,9 +36,13 @@ app.get('/movies/:name', (req, res) => {
 
 //Gets data about a genre by name
 app.get('/movies/genre/:genre', (req, res) => {
-  res.json(movies.filter((movie) => { 
+  const moviesList = movies.filter((movie) => { 
     return movie.genre === req.params.genre 
-  }));
+  });
+  const movieNames = moviesList.map((movie) => {
+    return movie.title
+  });
+  res.json(movieNames);
 });
 
 // Gets data about a director by name
