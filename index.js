@@ -1,9 +1,11 @@
 const express = require('express');
 const morgan = require('morgan');
-const movies = require('./data');
+const data= require('./data');
 
 const app = express();
 
+const movies = data.movies;
+const users = data.users;
 //Morgan middleware library to log all requests 
 app.use(morgan('common'));
 
