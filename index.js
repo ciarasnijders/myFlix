@@ -100,6 +100,23 @@ app.post('/users', (req, res) => {
   }
 })
 
+//put data about the user that needs to be updated
+app.put('/users/:id', (req, res) => {
+  const user = users.find((user) => {
+    return user.id === Number(req.params.id)
+  });
+  const newUser = req.body;
+  if (!newUser.name || !newUser.email || !newUser.password) {
+    const message = 'Missing data in request body';
+    res.status(400).send(message);
+  } else {
+    const userIndex = users.indexOf(user);
+    users[userIndex] = newUser;
+    res.status(200).send(users)
+  }
+})
+
+
 //express.static to serve your “documentation.html” file from the public folder 
 app.use(express.static('public'));
 
