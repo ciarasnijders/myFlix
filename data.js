@@ -151,4 +151,22 @@ let movies = [
   },
 ];
 
-  module.exports = movies;
+let users = [
+  {
+    id: 1,
+    name: 'Test Account',
+    email: 'testaccount@email.com',
+    password: 'testaccountpw1'
+  },
+  {
+    id: 2,
+    name: 'Test Account2',
+    email: 'testaccount2@email.com',
+    password: 'testaccountpw2'
+  },
+];
+
+
+module.exports = { movies, users }
+
+
