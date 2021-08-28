@@ -38,6 +38,14 @@ app.get('/movies/genre/:genre', (req, res) => {
   }));
 });
 
+// Gets data about a director by name
+app.get('/movies/director/:name', (req, res) => {
+  const movie = movies.find((movie) => { 
+    return movie.director.name === req.params.name 
+  });
+  res.json(movie.director);
+});
+
 //express.static to serve your “documentation.html” file from the public folder 
 app.use(express.static('public'));
 
