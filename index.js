@@ -86,6 +86,20 @@ app.delete('/movies/:name', (req, res) => {
   }
 });
 
+//posts data about the user (username, email, password)
+app.post('/users', (req, res) => {
+  let newUser = req.body;
+
+  if (!newUser.name || !newUser.email || !newUser.password) {
+    const message = 'Missing data in request body';
+    res.status(400).send(message);
+  } else {
+    newUser.id = uuid.v4();
+    users.push(newUser);
+    res.status(201).send(newUser);
+  }
+})
+
 //express.static to serve your “documentation.html” file from the public folder 
 app.use(express.static('public'));
 
