@@ -19,6 +19,11 @@ app.get('/movies', (req, res) => {
   res.json(movies);
 });
 
+//Express GET route located at the endpoint “/users that returns users
+app.get('/users', (req, res) => {
+  res.json(users);
+});
+
 //express.static to serve your “documentation.html” file from the public folder 
 app.use(express.static('public'));
 
