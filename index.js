@@ -40,9 +40,10 @@ app.get('/movies/genre/:genre', (req, res) => {
   const moviesList = movies.filter((movie) => { 
     return movie.genre === req.params.genre 
   });
-  const movieNames = moviesList.map((movie) => {
-    return movie.title
-  });
+  const movieNames = _.map(moviesList, 'title')
+  // const movieNames = moviesList.map((movie) => {
+  //   return movie.title
+  // });
   res.json(movieNames);
 });
 
