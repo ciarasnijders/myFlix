@@ -30,6 +30,80 @@
         ● Allow users to update their user info (username, password, email, date of birth)
         ● Allow users to add a movie to their list of favorites
         ● Allow users to remove a movie from their list of favorites
-        ● Allow existing users to deregister</p>
+        ● Allow existing users to deregister
+    </p>
+
+    <p>
+        1. 
+        request: Get list of movies
+        URL: /movies
+        HTTP method: GET
+        Request body data format: none
+        Response body data format: a JSON object holiding data about all the movies
+
+        2. 
+        request: Get data about a single movie
+        URL: /movies/[Name]
+        HTTP method: GET
+        Request body data format: none
+        Response body data format: A JSON object holiding data about a single movie (description, genre, director, image URL, whether it’s featured or not)
+
+        3. 
+        request: Get data about a genre by name
+        URL: /movies/genre/[Name]
+        HTTP method: GET
+        Request body data format:none
+        Response body data format: A JSON object holding a list of all the movies with requested genre
+
+        4. 
+        request: Get data about a director by name
+        URL: /movies/director/[Name]
+        HTTP method: GET
+        Request body data format: none
+        Response body data format: a JSON object holiding data about a director (bio, birth year, death year)
+
+        5. 
+        request: add a movie
+        URL: /movies
+        HTTP method: POST
+        Request body data format: A JSON object holding data about the movie to add
+        Response body data format:  A JSON object holding data about the movie to add
+
+        6. 
+        request: remove a movie by name
+        URL: /movies/[Name]
+        HTTP method: DELETE
+        Request body data format: none
+        Response body data format: A text message stating whether the movie was successfully removed (or not)
+
+        7. 
+        request: get the year of a movie
+        URL: /movies/[Name]/year
+        HTTP method: GET
+        Request body data format: none
+        Response body data format: A text message stating the reelease year of the movie
+
+        8. 
+        request: get the director of a movie 
+        URL: /movies/[Name]/director
+        HTTP method: GET
+        Request body data format: none
+        Response body data format:  A text message stating the director of the movie
+
+        9. 
+        request: allow new user to register
+        URL: /users
+        HTTP method: POST
+        Request body data format: A JSON object holding data about the user (username, email, password)
+        Response body data format:  A JSON object holiding data about the user that was added
+        
+        10. 
+        request: allow users to update their user info (username)
+        URL: allow users to update their user info (username)
+        HTTP method: PATCH
+        Request body data format: PATCH
+        Response body data format: A JSON object holiding data about the user that was updated
+
+    </p>
 </body>
 </html>
