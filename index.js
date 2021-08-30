@@ -99,6 +99,13 @@ app.post('/users', (req, res) => {
   }
 })
 
+//password policy
+function checkPassword(str) { 
+  // at least one number, one lowercase and one uppercase letter // at least six characters that are letters, numbers or the underscore.
+  const re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}$/
+  return re.test(str); 
+}
+
 // Deletes a movie from list by name
 app.delete('/movies/:name', (req, res) => {
   let movie = movies.find((movie) => { 
