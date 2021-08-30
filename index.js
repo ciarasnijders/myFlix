@@ -153,6 +153,22 @@ app.delete('/users/:id/favorites/:name', (req, res) => {
   }
 });
 
+// Delete/deregsiter a user 
+app.delete('/users/:id', (req, res) => {
+  let user = users.find((user) => { 
+    return user.id === req.params.id
+  });
+  if (!user) {
+    const message = 'User not found!';
+    res.status(400).send(message);
+  } else {
+    const userIndex = users.indexOf(user);
+    users.splice(userIndex, 1);
+    res.status(201).send(`User ${user.email} was deleted.`);
+  }
+});
+
+
 //put data about the user that needs to be updated
 app.put('/users/:id', (req, res) => {
   const user = users.find((user) => {
