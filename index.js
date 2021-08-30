@@ -158,7 +158,29 @@ app.put('/users/:id', (req, res) => {
     users[userIndex] = newUser;
     res.status(200).send(users)
   }
-})
+});
+
+//puts movie into user list of favs
+app.put('/users/:id/favorites/:name', (req, res) => {
+  const user = users.find((user) => {
+    return user.id === Number(req.params.id)
+  });
+  const userFavoriteList = user.favorites;
+  const movie = movies.find((movie) => {
+    return movie.title === req.params.name
+  });
+  if (!user) {
+    const message = 'User not found!';
+    res.status(400).send(message);
+  } else if (!movie) {
+    const message = 'Movie not found!'; 
+    res.status(400).send(message);
+  } else {
+    userFavoriteList.push(movie.title);
+    res.status(201).send(`Movie ${req.params.name} has been added.`);
+  }
+});
+
 
 
 //express.static to serve your “documentation.html” file from the public folder 
