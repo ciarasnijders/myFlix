@@ -156,13 +156,15 @@ let users = [
     id: 1,
     name: 'Test Account',
     email: 'testaccount@email.com',
-    password: 'testaccountpw1'
+    password: 'testaccountpw1',
+    favorites: []
   },
   {
     id: 2,
     name: 'Test Account2',
     email: 'testaccount2@email.com',
-    password: 'testaccountpw2'
+    password: 'testaccountpw2',
+    favorites: []
   },
 ];
 
