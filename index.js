@@ -89,15 +89,26 @@ app.post('/movies', (req, res) => {
 app.post('/users', (req, res) => {
   let newUser = req.body;
 
+  const existingUser = users.find((user) => {
+    return user.email === newUser.email
+  });
+
   if (!newUser.name || !newUser.email || !newUser.password) {
     const message = 'Missing data in request body';
     res.status(400).send(message);
+  } else if (existingUser) {
+    const message = `User ${newUser.email} already exists.`;
+    res.status(400).send(message);
+  } else if (!checkPassword(newUser.password)) {
+    const message = 'Invalid password format (password must have at least one number, one lowercase and one uppercase letter, at least six characters that are letters, numbers or the underscore).'
+    res.status(400).send(message);
   } else {
     newUser.id = uuid.v4();
+    newUser.favorites = []
     users.push(newUser);
     res.status(201).send(newUser);
   }
-})
+});
 
 //password policy
 function checkPassword(str) { 
