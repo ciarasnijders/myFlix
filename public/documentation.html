@@ -106,14 +106,14 @@
 
         11. 
         request: Allow users to add a movie to their list of favorites
-        URL: /users/favorites/[Name]
+        URL: /users/[id]/favorites/[Name]
         HTTP method: PUT
         Request body data format: A JSON object holding data about the name of the movie that needs to be added to the favorite list
         Response body data format: A JSON object holiding data about the list that was updated
 
         12. 
         request: Allow users to remove a movie from their list of favorites
-        URL: /users/favorites/[Name]
+        URL: /users/[id]/favorites/[Name]
         HTTP method: DELETE
         Request body data format: none
         Response body data format: A text message stating whether the movie was successfully removed (or not)
