@@ -120,6 +120,27 @@ app.delete('/movies/:name', (req, res) => {
   }
 });
 
+//delete a movie from list of favs
+app.delete('/users/:id/favorites/:name', (req, res) => {
+  const user = users.find((user) => {
+    return user.id === Number(req.params.id)
+  });
+  const userFavoriteList = user.favorites;
+  const movie = movies.find((movie) => {
+    return movie.title === req.params.name
+  });
+  if (!user) {
+    const message = 'User not found!';
+    res.status(400).send(message);
+  } else if (!movie) {
+    const message = 'Movie not found!'; 
+    res.status(400).send(message);
+  } else {
+    const movieIndex = userFavoriteList.indexOf(movie);
+    userFavoriteList.splice(movieIndex, 1);
+    res.status(201).send(`Movie ${req.params.name} has been deleted.`);
+  }
+});
 
 //put data about the user that needs to be updated
 app.put('/users/:id', (req, res) => {
