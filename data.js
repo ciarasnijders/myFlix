@@ -149,22 +149,86 @@ let movies = [
     imageURL: 'https://upload.wikimedia.org/wikipedia/en/d/d3/The_Help_%282011_film%29.jpg',
     featured: true
   },
+  {
+    id: 11,
+    title: 'Avatar',
+    description: 'Jake, who is paraplegic, replaces his twin on the Na\'vi inhabited Pandora for a corporate mission. After the natives accept him as one of their own, he must decide where his loyalties lie.',
+    director: {
+      name:'James Cameron',
+      bio:'James Francis Cameron CC is a Canadian film director, producer, screenwriter, editor, artist, and environmentalist who currently lives in New Zealand. He is best known for making science fiction and epic films. Cameron first gained recognition for directing The Terminator',
+      birthYear: '1954',
+      deathYear:'', 
+    },
+    year: '2009', 
+    genre: 'fantasy',
+    imageURL: 'https://images.pathe-thuis.nl/9521_378x538.jpg',
+    featured: true
+  },
+  {
+    id: 1,
+    title: 'Home Alone',
+    description:'Eight-year-old Kevin is accidentally left behind when his family leaves for France. At first, he is happy to be in charge, but when thieves try to break into his home, he tries to put up a fight.',
+    director: {
+      name:'Chris Columbus',
+      bio:'Chris Joseph Columbus is an American film director, producer, and screenwriter. Born in Spangler, Pennsylvania, Columbus studied film at Tisch School of the Arts where he developed an interest in filmmaking.',
+      birthYear: '1958',
+      deathYear:'', 
+    },
+    year: '1990',
+    genre:'comedy',
+    imageURL: 'https://m.media-amazon.com/images/M/MV5BMzFkM2YwOTQtYzk2Mi00N2VlLWE3NTItN2YwNDg1YmY0ZDNmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg',
+    featured: true
+  },
 ];
 
 let users = [
   {
     id: 1,
-    name: 'Test Account',
-    email: 'testaccount@email.com',
-    password: 'testaccountpw1',
-    favorites: []
+    Username: "Test Account",
+    Email: "testaccount@email.com",
+    Password: "testaccountpw1",
+    Birthday: new Date ("1991-01-01") ,
+    Favorites: [7, 9]
   },
   {
     id: 2,
-    name: 'Test Account2',
-    email: 'testaccount2@email.com',
-    password: 'testaccountpw2',
-    favorites: []
+    Username: "Test Account 2",
+    Email: "testaccount2@email.com",
+    Password: "testaccountpw2",
+    Birthday: new Date ("1992-02-02") ,
+    Favorites: [1, 2, 3]
+  },
+  {
+    id: 3,
+    Username: "Test Account 3",
+    Email: "testaccount3@email.com",
+    Password: "testaccountpw3",
+    Birthday: new Date ("1993-03-03"),
+    Favorites: [4, 5, 6]
+  },
+  {
+    id: 4,
+    Username: "Test Account 4",
+    Email: "testaccount4@email.com",
+    Password: "testaccountpw4",
+    Birthday: new Date ("1994-04-04"), 
+    Favorites: [7, 8, 9]
+  },
+  {
+    id: 5,
+    Username: "Test Account 5",
+    Email: "testaccount5@email.com",
+    Password: "testaccountpw5",
+    Birthday: new Date ("1995-05-05") ,
+    Favorites: [1, 11, 12]
+  },
+  {
+    id: 6,
+    Username: "Test Account 6",
+    Email: "testaccount6@email.com",
+    Password: "testaccountpw6",
+    Birthday: new Date ("1996-06-06"),
+    Favorites: [2, 4, 6]
   },
 ];
 
