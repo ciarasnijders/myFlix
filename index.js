@@ -21,6 +21,16 @@ const Movies = Models.Movie;
 const Users = Models.User;
 const Genres = Models.Genre;
 
+const {OK, RESOURCE_CREATED, NOT_FOUND, BAD_REQUEST, UNAUTHORIZED, FORBIDDEN, INTERNAL_SERVER_ERROR} = {
+  "OK": 200,
+  "RESOURCE_CREATED": 201,
+  "NOT_FOUND": 404,
+  "BAD_REQUEST": 400,
+  "UNAUTHORIZED": 401,
+  "FORBIDDEN": 403,
+  "INTERNAL_SERVER_ERROR": 500
+}
+
 app.use(express.json());
 //Morgan middleware library to log all requests 
 app.use(morgan('common'));
@@ -34,7 +44,7 @@ app.get('/', (req, res) => {
 app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.find()
   .then(function(movies) {
-    res.status(201).json(movies);
+    res.status(200).json(movies);
 
   }).catch(function(error) {
     console.error(error);
@@ -47,7 +57,7 @@ app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) 
 app.get('/users', passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.find()
     .then((users) => {
-      res.status(201).json(users);
+      res.status(200).json(users);
     })
     .catch((err) => {
       console.error(err);
@@ -59,7 +69,11 @@ app.get('/users', passport.authenticate('jwt', { session: false }), (req, res) =
 app.get('/movies/:title', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.findOne({title: req.params.title})
     .then((movies) => {
-      res.json(movies);
+      if (movies) {
+        res.json(movies);
+      } else {
+        res.status(404).json([])
+      }
     })
     .catch((err) => {
       console.error(err);
