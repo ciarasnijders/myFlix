@@ -4,22 +4,22 @@ const uuid = require('uuid');
 const _ = require('lodash');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const passport = require('passport');
+// require('./passport');
 
 const app = express();
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
 
 let auth = require('./auth')(app);
-const passport = require('passport');
-require('./passport');
-
-mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const Models = require('./models.js');
-
 const Movies = Models.Movie;
 const Users = Models.User;
 const Genres = Models.Genre;
+
+mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
+
 
 const {OK, RESOURCE_CREATED, NOT_FOUND, BAD_REQUEST, UNAUTHORIZED, FORBIDDEN, INTERNAL_SERVER_ERROR} = {
   "OK": 200,
@@ -166,7 +166,7 @@ app.post('/movies', passport.authenticate('jwt', { session: false }), (req, res)
 });
 
 //posts data about the user (username, email, password)
-app.post('/users', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.post('/users', (req, res) => {
   Users.findOne({ Username: req.body.Username })
     .then((user) => {
       if (user) {
