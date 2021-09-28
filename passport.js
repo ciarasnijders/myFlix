@@ -32,7 +32,7 @@ passport.use(new JWTStrategy({
 }, (jwtPayload, callback) => {
     return Users.findById(jwtPayload._id)
         .then((user) => {
-            return callback(mull, user);
+            return callback(null, user);
         })
         .catch((error) => {
             return callback(error)
