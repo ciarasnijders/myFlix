@@ -1,35 +1,32 @@
 const express = require('express');
 const morgan = require('morgan');
-const uuid = require('uuid');
-const _ = require('lodash');
 const mongoose = require('mongoose');
+const Models = require('./models.js');
 const bodyParser = require('body-parser');
+const { check, validationResult } = require('express-validator');
 const passport = require('passport');
-// require('./passport');
 
 const app = express();
-app.use(bodyParser.json()); 
-app.use(bodyParser.urlencoded({ extended: true }));
-
-const cors = require('cors');
-app.use(cors());
-
-const { check, validationResult } = require('express-validator');
-
-let authRoutes = require('./auth');
-authRoutes(app)
-const passport = require('passport');
-require('./passport');
-
-mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
-
-const Models = require('./models.js');
 const Movies = Models.Movie;
 const Users = Models.User;
 const Genres = Models.Genre;
+const cors = require('cors');
+
+
+//Morgan middleware library to log all requests 
+app.use(passport.initialize())
+require('./passport');
+
+app.use(morgan('common'));
+app.use(express.json());
+app.use(bodyParser.json()); 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
+
 
 mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
+let auth = require('./auth')(app);
 
 const {OK, RESOURCE_CREATED, NOT_FOUND, BAD_REQUEST, UNAUTHORIZED, FORBIDDEN, INTERNAL_SERVER_ERROR} = {
   "OK": 200,
@@ -40,10 +37,6 @@ const {OK, RESOURCE_CREATED, NOT_FOUND, BAD_REQUEST, UNAUTHORIZED, FORBIDDEN, IN
   "FORBIDDEN": 403,
   "INTERNAL_SERVER_ERROR": 500
 }
-
-app.use(express.json());
-//Morgan middleware library to log all requests 
-app.use(morgan('common'));
 
 //GET route located at the endpoint “/” that returns a default textual response 
 app.get('/', (req, res) => {
