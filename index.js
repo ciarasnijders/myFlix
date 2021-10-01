@@ -145,7 +145,7 @@ app.get('/movies/:title/director', passport.authenticate('jwt', { session: false
 });
 
 
-//Adds data for a new movie to our list of movies
+//Adds data for a new movie to list of movies
 app.post('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.findOne({ title: req.body.title })
     .then((movie) => {
