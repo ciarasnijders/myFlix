@@ -80,6 +80,22 @@ app.get('/users', passport.authenticate('jwt', { session: false }), (req, res) =
     });
 });
 
+//the information of a specific user
+app.get('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
+  Users.findOne({Username: req.params.Username})
+    .then((user) => {
+      if (user) {
+        res.json(user);
+      } else {
+        res.status(404).json([])
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send( 'Error: ' + err);
+    });
+});
+
 //Gets the data about a single movie, by name
 app.get('/movies/:title', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.findOne({title: req.params.title})
