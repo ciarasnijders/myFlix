@@ -4,22 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>DOCUMENTATION</title>
 </head>
 <body>
     <h1>Documentation page</h1>
     <p>
-        myFlix Project
-
-        The web application myFlix will provide users with access to information about different movies, directors, and genres. Users will be able to sign up, update their personal information, and create a list of their favorite movies.
-        
+        Name of project: myFlix Project
+    
+        The web application myFlix will provide users with access to information about different movies, directors, and genres. Users will be able to sign up, update their personal information, and create a list of their favorite movies.  
+    </p>
+    <p> 
         The 5 Ws
         ● Who — the immediate users will be frontend developers who’ll work on the client-side for the application based on what’s been documented on the server-side. The users of the myFlix application are movie/film enthusiasts who enjoy reading information about different movies.
         ● What — the complete server-side of the web application, including the server, business logic, and business layers of the application. It consists of a well-designed REST API and architected database built using JavaScript, Node.js, Express, and MongoDB. The REST API is accessed via commonly used HTTP methods like GET and POST. Similar methods (CRUD) have been used to retrieve data from the database and store that data in a non-relational way.
         ● When — whenever the users of myFlix are interacting with the application, the server-side of the application will be in use, processing their requests and performing operations against the data in the database. These users are able to use the myFlix application whenever they like to read information about different movies or update their user information, for instance, their list of “Favorite Movies.” 
         ● Where — the application will be hosted online. The myFlix application itself is responsive and can therefore be used anywhere and on any device, giving all users the same experience.
         ● Why — movie/film enthusiasts want to be able to access information about different movies, directors, and genres. The server-side of the myFlix application ensures they have access to this information, that their requests can be processed, and that all necessary data can be stored.
-        
+    </p>
+    <p>   
         Features of the app:
         ● Return a list of ALL movies to the user
         ● Return data (description, genre, director, image URL, whether it’s featured or not) about a
@@ -33,98 +36,120 @@
         ● Allow existing users to deregister
     </p>
 
-    <p>
-        1. 
-        request: Get list of movies
-        URL: /movies
-        HTTP method: GET
-        Request body data format: none
-        Response body data format: a JSON object holiding data about all the movies
-
-        2. 
-        request: Get data about a single movie
-        URL: /movies/[title]
-        HTTP method: GET
-        Request body data format: none
-        Response body data format: A JSON object holiding data about a single movie (description, genre, director, image URL, whether it’s featured or not)
-
-        3. 
-        request: Get data about a genre by name
-        URL: /genres/[Name]
-        HTTP method: GET
-        Request body data format:none
-        Response body data format: A JSON object holding a list of all the movies with requested genre
-
-        4. 
-        request: Get data about a director by name
-        URL: /movies/director/[Name]
-        HTTP method: GET
-        Request body data format: none
-        Response body data format: a JSON object holiding data about a director (bio, birth year, death year)
-
-        5. 
-        request: add a movie to list of favorites
-        URL: /movies
-        HTTP method: POST
-        Request body data format: A JSON object holding data about the movie to add
-        Response body data format:  A JSON object holding data about the movie to add
-
-        6. 
-        request: remove movie from list of favorites by name
-        URL: /movies/[title]
-        HTTP method: DELETE
-        Request body data format: none
-        Response body data format: A text message stating whether the movie was successfully removed (or not)
-
-        7. 
-        request: get the year of a movie
-        URL: /movies/[title]/year
-        HTTP method: GET
-        Request body data format: none
-        Response body data format: A text message stating the reelease year of the movie
-
-        8. 
-        request: get the director of a movie 
-        URL: /movies/[title]/director
-        HTTP method: GET
-        Request body data format: none
-        Response body data format:  A text message stating the director of the movie
-
-        9. 
-        request: allow new user to register
-        URL: /users
-        HTTP method: POST
-        Request body data format: A JSON object holding data about the user (username, email, password)
-        Response body data format:  A JSON object holiding data about the user that was added
-        
-        10. 
-        request: allow users to update their user info (username)
-        URL: /users/[Username]
-        HTTP method: PUT
-        Request body data format:
-        Response body data format: A JSON object holiding data about the user that was updated
-
-        11. 
-        request: Allow users to add a movie to their list of favorites
-        URL: /users/[Username]/favorites/[MovieID]
-        HTTP method: PUT
-        Request body data format: A JSON object holding data about the name of the movie that needs to be added to the favorite list
-        Response body data format: A JSON object holiding data about the list that was updated
-
-        12. 
-        request: Allow users to remove a movie from their list of favorites
-        URL: /users/[id]/favorites/[title]
-        HTTP method: DELETE
-        Request body data format: none
-        Response body data format: A text message stating whether the movie was successfully removed (or not)
-
-        13. 
-        request: Allow existing users to deregister
-        URL: /users/[Username]
-        HTTP method: DELETE
-        Request body data format: none
-        Response body data format: A text message stating whether the user was successfully deregistered (or not)
-
-    </p>
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Request</th>
+            <th scope="col">URL</th>
+            <th scope="col">HTTP method</th>
+            <th scope="col">Request body data format</th>
+            <th scope="col">Response body data format</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Get list of movies</th>
+            <td>/movies</td>
+            <td>GET</td>
+            <td>none</td>
+            <td>a JSON object holiding data about all the movies</td>
+          </tr>
+          <tr>
+            <th scope="row">Get data about a single movie</th>
+            <td>/movies/[title]</td>
+            <td>GET</td>
+            <td>none</td>
+            <td>A JSON object holding a list of all the movies with requested genre</td>
+          </tr>
+          <tr>
+            <th scope="row">Get data about a genre by name</th>
+            <td>/genres/[Name]</td>
+            <td>GET</td>
+            <td>none</td>
+            <td>A JSON object holding a list of all the movies with requested genre</td>
+          </tr>
+          <tr>
+            <th scope="row">Get data about a director by name</th>
+            <td>/movies/director/[Name]</td>
+            <td>GET</td>
+            <td>none</td>
+            <td>a JSON object holiding data about a director (bio, birth year, death year)</td>
+          </tr>
+          <tr>
+            <th scope="row">add a movie to list of favorites</th>
+            <td>/movies</td>
+            <td>POST</td>
+            <td>A JSON object holding data about the movie to add</td>
+            <td>A JSON object holding data about the movie to add</td>
+          </tr>
+          <tr>
+            <th scope="row">remove movie from list of favorites by name</th>
+            <td>/movies/[title]</td>
+            <td>DELETE</td>
+            <td>none</td>
+            <td>A text message stating whether the movie was successfully removed (or not)</td>
+          </tr>
+          <tr>
+            <th scope="row">get the year of a movie</th>
+            <td>/movies/[title]/year</td>
+            <td>GET</td>
+            <td>none</td>
+            <td>A text message stating the reelease year of the movie</td>
+          </tr>
+          <tr>
+            <th scope="row">get the director of a movie </th>
+            <td>/movies/[title]/director</td>
+            <td>GET</td>
+            <td>none</td>
+            <td>A text message stating the director of the movie</td>
+          </tr>
+          <tr>
+            <th scope="row">allow new user to register</th>
+            <td>/users</td>
+            <td>POST</td>
+            <td>A JSON object holding data about the user (username, email, password)</td>
+            <td>A JSON object holiding data about the user that was added</td>
+          </tr>
+          <tr>
+            <th scope="row">allow users to update their user info (username)/th>
+            <td>/users/[Username]</td>
+            <td>PUT</td>
+            <td> JSON object holding data about the user (username, email, password)</td>
+            <td>A JSON object holiding data about the user that was updated</td>
+          </tr>
+          <tr>
+            <th scope="row">Allow users to add a movie to their list of favorites</th>
+            <td>/users/[Username]/favorites/[MovieID]</td>
+            <td>PUT</td>
+            <td>A JSON object holding data about the name of the movie that needs to be added to the favorite list</td>
+            <td>A JSON object holiding data about the list that was updated</td>
+          </tr>
+          <tr>
+            <th scope="row">Allow users to remove a movie from their list of favorites</th>
+            <td>/users/[id]/favorites/[title]</td>
+            <td>DELETE</td>
+            <td>none</td>
+            <td>A text message stating whether the movie was successfully removed (or not)</td>
+          </tr>
+          <tr>
+            <th scope="row">Allow existing users to deregister</th>
+            <td>/users/[Username]</td>
+            <td>DELETE</td>
+            <td>none</td>
+            <td>A text message stating whether the user was successfully deregistered (or not)</td>
+          </tr>
+          <tr>
+            <th scope="row">the information of a specific user</th>
+            <td>/users/[Username]</td>
+            <td>GET</td>
+            <td>none</td>
+            <td>A JSON object holiding data about the user</td>
+          </tr>
+    </table>
+ 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
 </body>
 </html>
