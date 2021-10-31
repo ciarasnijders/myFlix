@@ -56,7 +56,17 @@ app.get('/', (req, res) => {
 });
 
 //Express GET route located at the endpoint “/movies” that returns movies
-app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
+// app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
+//   Movies.find()
+//   .then(function(movies) {
+//     res.status(200).json(movies);
+
+//   }).catch(function(error) {
+//     console.error(error);
+//     res.status(500).send("Error: " + error);
+//   });
+// });
+app.get('/movies', (req, res) => {
   Movies.find()
   .then(function(movies) {
     res.status(200).json(movies);
